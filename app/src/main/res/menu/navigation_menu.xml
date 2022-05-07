@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@drawable/home"/>
-    <item
-        android:id="@+id/popularFragment"
-        android:title="News"
-        android:icon="@drawable/popular"/>
-    <item
-        android:id="@+id/randomFragment"
-        android:title="Profile"
-        android:icon="@drawable/random"/>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/homeFragment"
+            android:title="Home"
+            android:icon="@drawable/home2"/>
+        <item
+            android:id="@+id/popularFragment"
+            android:title="Popular"
+            android:iconTint="@color/gradient"
+            android:icon="@drawable/ic_popular"
+            />
+        <item
+            android:id="@+id/randomFragment"
+            android:title="Random"
+            android:icon="@drawable/random2"/>
+
+        <item
+            android:id="@+id/favoriteFragment"
+            android:title="Liked"
+            android:icon="@drawable/love"/>
+
+
+        <item
+            android:id="@+id/historyFragment"
+            android:title="History"
+            android:icon="@drawable/history"/>
+
+        <item
+            android:id="@+id/info"
+            android:title="About"
+            android:icon="@drawable/info"/>
+    </group>
+
 </menu>

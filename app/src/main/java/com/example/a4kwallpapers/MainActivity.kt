@@ -2,47 +2,52 @@ package com.example.a4kwallpapers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.example.a4kwallpapers.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNav: BottomNavigationView
-    lateinit var navController: NavController
-    lateinit var drawerLayout: DrawerLayout
     lateinit var binding: ActivityMainBinding
-    private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
+    private lateinit var drawerToggle: ActionBarDrawerToggle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        bottomNav = binding.bottomNavigation
-
-
+        val toolbar: Toolbar = findViewById(R.id.toolbar_main)
+        setSupportActionBar(toolbar)
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.purple_200))
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navView: NavigationView = findViewById(R.id.navigation_view)
         navController = findNavController(R.id.hostFragment)
-        setupBottomNavigation()
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
 
-        navigationDrawer()
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.popularFragment,
+                R.id.randomFragment,
+                R.id.favoriteFragment,
+                R.id.historyFragment
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
 
-
-
-
-
-
-
-
-    }
-
-    private fun navigationDrawer() {
         drawerToggle = ActionBarDrawerToggle(
             this, binding.drawerLayout, binding.toolbarMain,
             R.string.open, R.string.close
@@ -52,31 +57,42 @@ class MainActivity : AppCompatActivity() {
         binding.drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         drawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
-        NavigationUI.setupActionBarWithNavController(this,navController,binding.drawerLayout)
 
+        setupBottomNavigation()
 
-        //NavigationUI.setupWithNavController(navigation_view,navController)
-        NavigationUI.setupWithNavController(binding.navigationView,navController)
-    }
-
-    private fun navDrawer() {
-        drawerLayout = binding.drawerLayout
-        // For Navigation UP
-        appBarConfiguration = AppBarConfiguration(navController.graph,drawerLayout)
-
-        NavigationUI.setupActionBarWithNavController(this,navController,drawerLayout)
-
-        //NavigationUI.setupWithNavController(navigation_view,navController)
-        NavigationUI.setupWithNavController(binding.navigationView,navController)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        //return navController.navigateUp()
-        return NavigationUI.navigateUp(navController,appBarConfiguration)
 
     }
 
     private fun setupBottomNavigation() {
-        bottomNav.setupWithNavController(navController)
+        binding.bottomNavigation.setupWithNavController(navController)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.hostFragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.itemId
+//        item.icon=resources.getDrawable(R.drawable.ic_popular2)
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun showBottomNavigation()
+    {
+        binding.bottomNavigation.visibility = View.VISIBLE
+
+
+
+    }
+
+    fun hideBottomNavigation()
+    {
+        binding.bottomNavigation.visibility = View.GONE
+        val fragmenttt = findViewById<View>(R.id.hostFragment)
+    }
+
+
 }

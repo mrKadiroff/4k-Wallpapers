@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/drawable/bottom_nav_tab_background.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/drawable/bottom_sheet_radius.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/drawable/gradient.xml" value="0.3287037037037037" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/drawable/ic_popular.xml" value="0.3287037037037037" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/drawable/shape.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/drawer_header.xml" value="0.31567028985507245" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/fragment_favorite.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/fragment_history.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/fragment_popular.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/fragment_tab.xml" value="0.26403985507246375" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/item_tab.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/layout/photo_item.xml" value="0.26403985507246375" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/menu/navigation_menu.xml" value="0.2972222222222222" />
+        <entry key="..\:/Users/Intel i3-9100F/AndroidStudioProjects/4kWallpapers/app/src/main/res/xml/network_security_config.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -20,4 +20,14 @@
         android:name="com.example.a4kwallpapers.bottom_fragments.RandomFragment"
         android:label="fragment_random"
         tools:layout="@layout/fragment_random" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.a4kwallpapers.bottom_fragments.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.a4kwallpapers.bottom_fragments.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>
