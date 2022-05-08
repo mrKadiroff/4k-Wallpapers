@@ -82,7 +82,8 @@ class MainActivity : AppCompatActivity() {
 
     fun showBottomNavigation()
     {
-        binding.bottomNavigation.visibility = View.VISIBLE
+        binding.blurit.visibility = View.VISIBLE
+        binding.toolbarMain.visibility = View.VISIBLE
 
 
 
@@ -90,7 +91,8 @@ class MainActivity : AppCompatActivity() {
 
     fun hideBottomNavigation()
     {
-        binding.bottomNavigation.visibility = View.GONE
+        binding.blurit.visibility = View.GONE
+        binding.toolbarMain.visibility = View.GONE
         val fragmenttt = findViewById<View>(R.id.hostFragment)
     }
 

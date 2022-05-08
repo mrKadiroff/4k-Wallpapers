@@ -1,5 +1,7 @@
 package com.example.a4kwallpapers.models2
 
+import java.io.Serializable
+
 data class Hit(
     val collections: Int,
     val comments: Int,
@@ -23,4 +25,4 @@ data class Hit(
     val webformatHeight: Int,
     val webformatURL: String,
     val webformatWidth: Int
-)
+):Serializable

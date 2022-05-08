@@ -5,7 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.a4kwallpapers.R
+import com.example.a4kwallpapers.adapters.PhotoAdapter
+import com.example.a4kwallpapers.databinding.FragmentPopularBinding
+import com.example.a4kwallpapers.databinding.FragmentRandomBinding
+import com.example.a4kwallpapers.models2.Hit
+import com.example.a4kwallpapers.viewmodels.UserViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,12 +41,38 @@ class RandomFragment : Fragment() {
         }
     }
 
+    lateinit var binding: FragmentRandomBinding
+    lateinit var photoAdapter: PhotoAdapter
+    lateinit var userViewModel: UserViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_random, container, false)
+        binding = FragmentRandomBinding.inflate(layoutInflater,container,false)
+
+
+        photoAdapter = PhotoAdapter(object: PhotoAdapter.OnItemClickListener{
+            override fun onItemClick(hit: Hit?) {
+                var bundle = Bundle()
+                bundle.putSerializable("wall",hit!!.largeImageURL)
+                findNavController().navigate(R.id.rawImageFragment,bundle)
+            }
+
+        })
+        binding.rvAll.adapter = photoAdapter
+
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+
+        userViewModel.word = "Random"
+        userViewModel.liveData.observe(this, Observer {
+
+            GlobalScope.launch(Dispatchers.Main) {
+                photoAdapter.submitData(it)
+            }
+        })
+
+        return binding.root
     }
 
     companion object {

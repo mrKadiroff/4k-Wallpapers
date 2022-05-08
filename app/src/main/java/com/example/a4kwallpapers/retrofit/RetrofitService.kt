@@ -10,14 +10,16 @@ import retrofit2.http.Query
 interface RetrofitService {
 
     @GET("api")
-    fun getListPhotos(
+    suspend fun getListPhotos(
         @Query("key") key: String,
         @Query("q") q:String,
         @Query("image_type") image_type:String,
         @Query("pretty") pretty:Boolean,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): Call<Rasmlar>
+    ): Rasmlar
+
+
 
 
     @GET("/api/")

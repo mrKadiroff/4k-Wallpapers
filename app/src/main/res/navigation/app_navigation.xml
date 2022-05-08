@@ -30,4 +30,18 @@
         android:name="com.example.a4kwallpapers.bottom_fragments.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/tabFragment"
+        android:name="com.example.a4kwallpapers.tab_fragments.TabFragment"
+        android:label="fragment_tab"
+        tools:layout="@layout/fragment_tab" >
+        <action
+            android:id="@+id/action_tabFragment_to_rawImageFragment"
+            app:destination="@id/rawImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rawImageFragment"
+        android:name="com.example.a4kwallpapers.tab_fragments.RawImageFragment"
+        android:label="fragment_raw_image"
+        tools:layout="@layout/fragment_raw_image" />
 </navigation>

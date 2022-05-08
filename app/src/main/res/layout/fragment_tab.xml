@@ -6,14 +6,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".tab_fragments.TabFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintBaseline_toBottomOf="parent"
+        app:spanCount="3"
         app:layout_constraintVertical_bias="0.060000002"
         tools:listitem="@layout/photo_item" />
 
